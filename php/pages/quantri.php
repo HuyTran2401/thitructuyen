@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="../thitructuyen/lib/assets/css/atlantis.min.css">
     <link rel="stylesheet" href="../thitructuyen/lib/assets/css/demo.css">
     <script src="http://malsup.github.io/jquery.blockUI.js"></script>
-    <title>ĐÁNH GIÁ</title>
+    <title>QUẢN TRỊ</title>
 </head>
 
 <body>    

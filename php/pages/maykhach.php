@@ -12,6 +12,7 @@
     <script type="text/javascript" src="../thitructuyen/lib/jquery.min.js"></script>
     <script type="text/javascript" src="../thitructuyen/lib/jquery.easyui.min.js"></script>
     <script src="../thitructuyen/lib/assets/js/plugin/webfont/webfont.min.js"></script>    
+    <!--
     <script>
         WebFont.load({
             google: {"families":["Lato:300,400,700,900"]},
@@ -20,11 +21,10 @@
                 sessionStorage.fonts = true;
             }
         });
-    </script>
+    </script>-->
     <link rel="stylesheet" href="../thitructuyen/lib/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../thitructuyen/lib/assets/css/atlantis.min.css">
     <link rel="stylesheet" href="../thitructuyen/lib/assets/css/demo.css">
-    <script src="http://malsup.github.io/jquery.blockUI.js"></script>
     <title>THI TRẮC NGHIỆM</title>
 </head>
 <body>
@@ -177,39 +177,40 @@
         } else {
             madonvi_cookie = madonvi_load;
         }
-        $(document).ready(function (){  
-
-            getCookie();
-            loadnoidungcauhoi(); 
+        $(document).ready(function (){
+            const counter = 16;
+            var time,question;
+            getCookie(); 
             loadthongtindoi();           
             var loadcauhoi = setInterval(function() {
                 loadnoidungcauhoi();   
-            }, 10000);
-            // setInterval(function() {
-            //     loadnoidungcauhoi();   
-            // }, 1000);            
+            },10000);            
             function tinhthoigianthi(){
-                var count = 16;
-                var counter = setInterval(timer, 1000);
-                function timer(){
-                    clearInterval(loadcauhoi);
-                    count = count - 1;
-                    if (count == -1){
-                        clearInterval(counter);                                     
-                         Swal.fire('Thông báo !','Bạn đã hết thời gian !!!' );
-                         document.getElementById("nd_cau_a").disabled = true;
-                         document.getElementById("nd_cau_b").disabled = true;
-                         document.getElementById("nd_cau_c").disabled = true;
-                         document.getElementById("nd_cau_d").disabled = true;  
-                         setInterval(function() {
+                addcss();
+                clearInterval(loadcauhoi);
+                stop_timer(question);
+                var counter = 16;
+                time = setInterval(function(){
+                    counter--;
+                    if (counter == -1){
+                        stop_timer(time);                              
+                        Swal.fire('Thông báo !','Bạn đã hết thời gian !!!' );
+                        document.getElementById("nd_cau_a").disabled = true;
+                        document.getElementById("nd_cau_b").disabled = true;
+                        document.getElementById("nd_cau_c").disabled = true;
+                        document.getElementById("nd_cau_d").disabled = true;  
+                        question = setInterval(function() {
                             loadnoidungcauhoi();   
-                        }, 10000);    
+                        },10000);             
                         test();              
                         return;  
                     }
-                    document.getElementById("timer").innerHTML= count + "";
-                }
-        }
+                    document.getElementById("timer").innerHTML= counter;
+                }, 1000);     
+            }
+            function stop_timer(type){
+                clearInterval(type);
+            }
         function loadnoidungcauhoi(){ 
              document.getElementById("nd_cau_a").disabled = false;
              document.getElementById("nd_cau_b").disabled = false;
@@ -373,7 +374,28 @@
                       addcss4();
                 }
             });
-        }  
+        } 
+        function addcss() {
+                   var element1 = document.getElementById("nd_cau_a");
+                   var element2 = document.getElementById("nd_cau_b");
+                   var element3 = document.getElementById("nd_cau_c");
+                   var element4 = document.getElementById("nd_cau_d");
+                      element1.classList.remove("button_1");
+                      element2.classList.remove("button_1");
+                      element3.classList.remove("button_1");
+                      element4.classList.remove("button_1");
+                        
+                      element1.classList.remove("button1a");
+                      element2.classList.remove("button2a");
+                      element3.classList.remove("button3a");
+                      element4.classList.remove("button4a");
+                        
+                      element1.classList.add("button1a");
+                      element2.classList.add("button2a");
+                      element3.classList.add("button3a");
+                      element4.classList.add("button4a");
+
+        } 
         function addcss1() {
                    var element1 = document.getElementById("nd_cau_a");
                    var element2 = document.getElementById("nd_cau_b");

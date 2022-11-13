@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="../thitructuyen/lib/assets/css/atlantis.min.css">
     <link rel="stylesheet" href="../thitructuyen/lib/assets/css/demo.css">
     <script src="http://malsup.github.io/jquery.blockUI.js"></script>
-    <title>ĐÁNH GIÁ</title>
+    <title>MÀN HÌNH CHÍNH</title>
 </head>
 
 <body>    
@@ -112,12 +112,13 @@
     </div>    
     <script type="text/javascript">                 
         $(document).ready(function (){  
-            loadthongtinquaytiepnhan();  
+            //loadthongtinquaytiepnhan();
             }); 
             $("#btn_cauhoi").click(function (evt) {
-               loadnoidungcauhoi(); 
+                loadnoidungcauhoi();
             });
-            $("#btn_dapan").click(function (evt) {
+            $("#btn_dapan").click(function (evt) {              
+              loadnoidungcauhoi_codapan();  
               loadthongtindapan();
             });
            function addcss1() {
@@ -140,7 +141,76 @@
                      element.classList.remove("button4a");
                      element.classList.add("button_1");
             }
+            function addcss() {
+                   var element1 = document.getElementById("nd_cau_a");
+                   var element2 = document.getElementById("nd_cau_b");
+                   var element3 = document.getElementById("nd_cau_c");
+                   var element4 = document.getElementById("nd_cau_d");
+                      element1.classList.remove("button_1");
+                      element2.classList.remove("button_1");
+                      element3.classList.remove("button_1");
+                      element4.classList.remove("button_1");
+                        
+                      element1.classList.remove("button1a");
+                      element2.classList.remove("button2a");
+                      element3.classList.remove("button3a");
+                      element4.classList.remove("button4a");
+                        
+                      element1.classList.add("button1a");
+                      element2.classList.add("button2a");
+                      element3.classList.add("button3a");
+                      element4.classList.add("button4a");
+
+        } 
             function loadnoidungcauhoi(){ 
+             addcss();   
+             document.getElementById("nd_cau_a").disabled = false;
+             document.getElementById("nd_cau_b").disabled = false;
+             document.getElementById("nd_cau_c").disabled = false;
+             document.getElementById("nd_cau_d").disabled = false;  
+            $.ajax({
+                type: 'POST',
+                url: 'go',
+                data: {
+                    for: "loadnoidungcauhoi",
+                    madonvi:<?php echo $_SESSION["madonvi"];?>
+                }
+            }).done(function(data){
+            var j_data = JSON.parse(data);
+            var kq = j_data[0].tt_cauhoi;
+            var a = $('#nd_cauhoi');
+            var b = $('#nd_cau_a');                    
+            var c = $('#nd_cau_b');
+            var d = $('#nd_cau_c');
+            var e = $('#nd_cau_d');
+            var f = $('#id_cauhoi');
+            //$("#nd_cauhoi",a).remove();
+            $("#nd_cauhoi").empty();
+            $("#nd_cau_a").empty();                     
+            $("#nd_cau_b").empty();
+            $("#nd_cau_c").empty();                     
+            $("#nd_cau_d").empty();
+            $("#id_cauhoi").empty();
+            $("#id_cauhoi").val(j_data[0].id_cauhoi);
+            $("#nd_cauhoi").append(j_data[0].nd_cauhoi);
+            $("#nd_cau_a").append(j_data[0].nd_cau_a);
+            $("#nd_cau_b").append(j_data[0].nd_cau_b);
+            $("#nd_cau_c").append(j_data[0].nd_cau_c);
+            $("#nd_cau_d").append(j_data[0].nd_cau_d);
+               if (kq == 1) {
+                    document.getElementById("nd_cau_a").disabled = true;
+                    document.getElementById("nd_cau_b").disabled = true;
+                    document.getElementById("nd_cau_c").disabled = true;
+                    document.getElementById("nd_cau_d").disabled = true;  
+                } else {
+                    document.getElementById("nd_cau_a").disabled = false;
+                    document.getElementById("nd_cau_b").disabled = false;
+                    document.getElementById("nd_cau_c").disabled = false;
+                    document.getElementById("nd_cau_d").disabled = false;  
+                }
+            });
+        }
+            function loadnoidungcauhoi_codapan(){ 
              document.getElementById("nd_cau_a").disabled = false;
              document.getElementById("nd_cau_b").disabled = false;
              document.getElementById("nd_cau_c").disabled = false;
@@ -181,7 +251,6 @@
                     document.getElementById("nd_cau_c").disabled = true;
                     document.getElementById("nd_cau_d").disabled = true;  
                 } else {
-                    tinhthoigianthi();
                     document.getElementById("nd_cau_a").disabled = false;
                     document.getElementById("nd_cau_b").disabled = false;
                     document.getElementById("nd_cau_c").disabled = false;
