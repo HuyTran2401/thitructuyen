@@ -38,7 +38,7 @@
 <div id="mncapnhatmatkhau" class="easyui-dialog" style="width:400px;height:300px"
     data-options="title:'Cập nhật mật khẩu',buttons:'#bb', modal:true, closed: true">
     <form id="fmncapnhatmatkhau" method="post" style="width:350px; margin: auto;">
-      <h2 style="text-align: center;"><?php echo $_SESSION["tennv"]; ?></h2>
+      <h2 style="text-align: center;"><?php echo $_SESSION["tenhanvien"]; ?></h2>
       <div style="margin-top:20px">
           <input class="easyui-passwordbox" name="password_old" prompt="Mật khẩu cũ" iconWidth="28"
             style="width:100%;height:34px;padding:10px">
@@ -88,7 +88,7 @@
           </td>
         </tr>
         <tr>
-          <td align="center" style="font-weight: bold"><?php echo $_SESSION["tennv"]; ?></td>
+          <td align="center" style="font-weight: bold"><?php echo $_SESSION["tenhanvien"]; ?></td>
           <td>
             <input class="easyui-textbox" label="Số điện thoại" labelWidth="120px" name="capnhat_sodienthoai" id="capnhat_sodienthoai" style="width:100%;" />
           </td>
@@ -113,6 +113,7 @@
           url: 'go',
           data: {
             for: "capnhatmatkhau",
+            taikhoan:<?php echo $_SESSION["taikhoan"];?>
             matkhaucu: MD5(c),
             matkhaumoi: MD5(b)
           },

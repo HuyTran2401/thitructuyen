@@ -4,18 +4,18 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <title>Hệ thống lấy ý kiến</title>
-    <link rel="touch-icon" sizes="76x76" href="../ql_layykien/lib/img/logo-vnpt.png">
-      <link rel="icon" type="image/png" href="../ql_layykien/lib/img/logo-vnpt.png">
-      <link rel="stylesheet" type="text/css" href="../ql_layykien/lib/themes/default/easyui.css">
-      <link rel="stylesheet" type="text/css" href="../ql_layykien/lib/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="../ql_layykien/lib/demo/demo.css">
-    <script type="text/javascript" src="../ql_layykien/lib/jquery.min.js"></script>
-      <script type="text/javascript" src="../ql_layykien/lib/jquery.easyui.min.js"></script>
-      <script type="text/javascript" src="../ql_layykien/lib/jquery.easyui.mobile.js"></script>
-    <script type="text/javascript" src="../ql_layykien/lib/lib.js"></script>
-    <script id="script-lang" type="text/javascript" src="../ql_layykien/lib/locale/easyui-lang-en.js"></script>
-    <script type="text/javascript" src="../ql_layykien/lib/datagrid-export.js"></script>
-    <script type="text/javascript" src="../ql_layykien/lib/datagrid-filter.js"></script>
+    <link rel="touch-icon" sizes="76x76" href="../thitructuyen/lib/img/logo-vnpt.png">
+      <link rel="icon" type="image/png" href="../thitructuyen/lib/img/logo-vnpt.png">
+      <link rel="stylesheet" type="text/css" href="../thitructuyen/lib/themes/default/easyui.css">
+      <link rel="stylesheet" type="text/css" href="../thitructuyen/lib/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../thitructuyen/lib/demo/demo.css">
+    <script type="text/javascript" src="../thitructuyen/lib/jquery.min.js"></script>
+      <script type="text/javascript" src="../thitructuyen/lib/jquery.easyui.min.js"></script>
+      <script type="text/javascript" src="../thitructuyen/lib/jquery.easyui.mobile.js"></script>
+    <script type="text/javascript" src="../thitructuyen/lib/lib.js"></script>
+    <script id="script-lang" type="text/javascript" src="../thitructuyen/lib/locale/easyui-lang-en.js"></script>
+    <script type="text/javascript" src="../thitructuyen/lib/datagrid-export.js"></script>
+    <script type="text/javascript" src="../thitructuyen/lib/datagrid-filter.js"></script>
     <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-detailview.js"></script>
     <style type="text/css">
       #container2 {
@@ -32,7 +32,7 @@
   </head>
   <body>
     <?php
-      include_once('../ql_layykien/php/pages/fmenu.php');
+      include_once('../thitructuyen/php/pages/fmenu.php');
     ?>
     <div id="container2" class="easyui-navpanel" style="width:100%;height:100%">
       <div class="easyui-layout" title="" style="height: 100%; padding:0px;background-color: #E9FAFF;">
@@ -125,7 +125,7 @@
         </div>
       </div>
         <?php
-        #include_once('../ql_layykien/php/pages/footer.php');
+        #include_once('../thitructuyen/php/pages/footer.php');
       ?>
     </div>
     <script type="text/javascript">

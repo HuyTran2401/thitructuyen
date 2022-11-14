@@ -126,6 +126,20 @@ if(isset($_POST['for'])) {
           echo json_encode($kq);  
           }
         break;
+        case "loadnoidungcauhoi_admin":
+        if(isset($_POST["madonvi"])){
+          $madonvi = $_POST["madonvi"];   
+          $kq  = (new AjDanhmuc())->Floadnoidungcauhoi_admin($madonvi);
+          echo json_encode($kq);  
+          }
+        break;
+         case "loaddiengiaicauhoi":
+        if(isset($_POST["id_cauhoi"])){
+          $id_cauhoi = $_POST["id_cauhoi"];   
+          $kq  = (new AjDanhmuc())->loaddiengiaicauhoi($id_cauhoi);
+          echo json_encode($kq);  
+          }
+        break;
         case "luu_dapan":
         if(isset($_POST["id_cauhoi"])){
           $id_cauhoi = $_POST["id_cauhoi"];   
@@ -150,8 +164,8 @@ if(isset($_POST['for'])) {
           }
         break;
         case "load_thongtinquaytiepnhan":
-        if(isset($_POST["cauhoi"])){
-          $cauhoi = $_POST["cauhoi"];   
+        if(isset($_POST["id_cauhoi"])){
+          $cauhoi = $_POST["id_cauhoi"];   
           $kq  = (new AjDanhmuc())->Loadthongtinsoquay($cauhoi);
           echo json_encode($kq);  
           }
@@ -325,6 +339,12 @@ if(isset($_GET['page'])) {
         case "_ketqua":
             include("php/pages/kq_batso.php");
             break;
+        case "_vong1":
+            include("php/pages/vong1.php");
+            break; 
+        case "_vong3":
+            include("php/pages/vong3.php");
+            break;       
         case "_rpbaocaodanhgia":
             $dsnhanvien = (new AjDanhmuc())->F_dsnhanvien($_SESSION['madonvi']);
             include("php/pages/rpbaocaodanhgia.php");

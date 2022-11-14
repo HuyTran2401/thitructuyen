@@ -122,7 +122,7 @@
                                                     </td>
                                             </tr>
                                         </tbody>
-                                        </table>
+                                        </table>                                       
                                     </div>
                                 </div>
                             </div>
@@ -131,6 +131,12 @@
                 </div>
             </div>
         </div>
+          <div class="footer">
+                                            <div style="display: flex;justify-content: flex-end; align-items: center;height: 40px;">
+                                                <span class="pr-3">VNPT Sóc Trăng</span>
+                                               <p><img src="../thitructuyen/lib/img/vnpt-logo1.png" style=" margin:16px 0 0 0; padding:0;width:40px;height: auto;color: white;"></p>
+                                           </div>
+                                        </div>
         <div id="modal_themykien" class="easyui-window" title="NHẬP GÓP Ý" data-options="modal:true,closed:true,iconCls:'icon-add',method:'post'" style="width:350px;height:40%;padding:5px;">
             <div class="easyui-layout" data-options="fit:true">
                 <div data-options="region:'center'" style="padding:5px;">
@@ -184,7 +190,7 @@
             loadthongtindoi();           
             var loadcauhoi = setInterval(function() {
                 loadnoidungcauhoi();   
-            },10000);            
+            },1000);            
             function tinhthoigianthi(){
                 addcss();
                 clearInterval(loadcauhoi);
@@ -201,7 +207,7 @@
                         document.getElementById("nd_cau_d").disabled = true;  
                         question = setInterval(function() {
                             loadnoidungcauhoi();   
-                        },10000);             
+                        },1000);             
                         test();              
                         return;  
                     }
@@ -766,6 +772,17 @@
             justify-content: center;
             font: bold 30px arial;
             }
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                /* width: 100%; */
+                background-color: transparent;
+                color: #0059aa;
+                text-align: right;
+                width: 100%;
+                border: 0;
+        }
     </style>
 </body> 
 </html>

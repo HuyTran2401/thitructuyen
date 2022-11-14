@@ -28,6 +28,16 @@ class TaikhoanController{
       	return array("trangthai" => -1, "cap" => -1);
     }
   }
+  public function FCapnhatmatkhau($taikhoan, $matkhaucu, $matkhaumoi){
+    $pdo = ConnectDb::getInstance()->getConnection();
+    $stmt = $pdo->prepare("call p_capnhatmatkhau(:taikhoan, :matkhaucu, :matkhaumoi);");
+    $stmt -> bindParam(':taikhoan', $taikhoan, PDO::PARAM_STR);
+    $stmt -> bindParam(':matkhaucu', $matkhaucu, PDO::PARAM_STR);
+    $stmt -> bindParam(':matkhaumoi', $matkhaumoi, PDO::PARAM_STR);
+    $stmt -> execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return array("trangthai" => $row["trangthai"], "cap" => $_SESSION["capql"]);
+  }
   public function FLogout(){
       if(isset($_SESSION["manhanvien"])){
         unset($_SESSION["manhanvien"]);

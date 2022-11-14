@@ -95,6 +95,22 @@ class AjDanhmuc
             return $stmt->fetchAll(PDO::FETCH_ASSOC);      
            // $rowP = $stmt->fetch();		  
 	    }
+	    public function Floadnoidungcauhoi_admin($madonvi){
+			$pdo = ConnectDb::getInstance()->getConnection();
+		    $stmt = $pdo->prepare("call p_loadcauhoi_admin(:madonvi);");
+            $stmt -> bindParam(':madonvi', $id_doi, PDO::PARAM_STR);
+            $stmt -> execute();  
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);      
+           // $rowP = $stmt->fetch();		  
+	    }
+	      public function loaddiengiaicauhoi($id_cauhoi){
+			$pdo = ConnectDb::getInstance()->getConnection();
+		    $stmt = $pdo->prepare("call f_loaddiengiaicauhoi(:id_cauhoi);");
+            $stmt -> bindParam(':id_cauhoi', $id_cauhoi, PDO::PARAM_STR);
+            $stmt -> execute();  
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);      
+           // $rowP = $stmt->fetch();		  
+	    }
 	      public function Loadthongtinsoquay($cauhoi){
 			$pdo = ConnectDb::getInstance()->getConnection();
 		    $stmt = $pdo->prepare("call p_loadthongtinsoquay(:cauhoi);");
